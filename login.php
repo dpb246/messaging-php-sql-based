@@ -1,12 +1,62 @@
-Login: <br>
-<FORM method="POST">
-
-Username<INPUT name="username">
-Password<INPUT name="password" type="password">
-<INPUT type="submit"> 
-
-</FORM>
-<A href="create.php">Make Account</A>
+<html>
+<head>
+	<title>Login</title>
+	<style> 
+		#screen {
+			position: relative;
+			width: 100%;
+			hieght: 100%;
+			text-align: center;
+		}
+		#container {
+			text-align: center;
+		}
+		#message {
+			font-size: 700%;
+			color: blue;
+		}
+		.emphasis{
+			font-size: 150%;
+		}
+		.agreement {
+			color: green;
+			margin: 0px;
+		}
+		.form {
+			color: blue;
+		}
+		#disclaimer {
+			font-style: italic;
+		}
+		#why {
+			color: #018982;
+		}
+		.form {
+			margin: 4px;
+		}
+	</style>
+</head>
+<body>
+	<div id='screen'>
+		<div id='container'>
+			<h2 class='form' id='form_title'>Login:</h2>
+			<FORM method="POST">
+			<p class='form'>Username</p>
+			<INPUT name="username">
+			<p class='form'>Password</p>
+			<INPUT name="password" type="password"><br><br>
+			<INPUT type="submit"> 
+			</FORM>
+		</div>
+		<div id='explication'>
+			<hr>
+			<A href="create.php">Make Account</A>
+		</div>
+	</div>
+	<script>
+	</script>
+</body>
+</html>
 <?php
 	if (session_status() == PHP_SESSION_NONE) {
 		session_start();
