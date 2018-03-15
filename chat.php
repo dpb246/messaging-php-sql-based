@@ -7,7 +7,7 @@ $_SESSION['lastmsgsent'] = -1;
 <html >
 <head>
 <title>Chat</title>
-<link type="text/css" rel="stylesheet" href="style.css?5" />
+<link type="text/css" rel="stylesheet" href="style.css?7" />
 </head>
 <body >
 <div id="all" >
@@ -25,6 +25,10 @@ $_SESSION['lastmsgsent'] = -1;
 			<input name="submitmsg" type="submit"  id="submitmsg" value="Send">
 		</form>
 	</div>
+	<div id="wrapper2">
+		<h3 id="title2">Active Users:</h3>
+		<div id="userbox"></div>
+	</div>
 </div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 <script type="text/javascript">
@@ -32,12 +36,13 @@ $_SESSION['lastmsgsent'] = -1;
 	$(document).ready(function(){
 	 
 	});
-	$("#submitmsg").click(function(){	
+	$("#submitmsg").click(function(){
 		var clientmsg = $("#usermsg").val();
 		if(clientmsg != "") {	
 			$.post("add.php", {message: clientmsg});
 		}			
 		$("#usermsg").attr("value", "");
+		loadActiveUsers();
 		return false;
 	});
 	var oldscrollHeight = 0;
@@ -63,7 +68,23 @@ $_SESSION['lastmsgsent'] = -1;
 		});
 	}
 	setInterval( loadLog, 250);
+	var oldHtml2 = "";
+	var displayedHtml2 = "";
+	function loadActiveUsers(){		
+		$.ajax({
+			url: "viewusers.php",
+			cache: false,
+			success: function(html){
+				if(oldHtml2 != html) {
+					oldHtml2=html;
+					displayedHtml2 = html;
+					$("#userbox").html(displayedHtml2); //Insert chat log into the #chatbox div
+				}
+			},
+		});
+	}
+	loadActiveUsers();
+	setInterval( loadActiveUsers, 10000);
 </script>
-<a href="viewusers.php">See who's online!</a>
 </body>
 </html>

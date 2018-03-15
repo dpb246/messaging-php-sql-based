@@ -47,10 +47,11 @@
 			if(isset($userid)) {
 				$_SESSION['userid'] = $userid;
 				echo "Success";
+				$stmt = $pdo->prepare('UPDATE users SET lastactive = DEFAULT WHERE userid = ?');
+				$stmt->execute([ $_SESSION['userid'] ]);
 				header('Location: chat.php');
 			}
-			$stmt = $pdo->prepare('UPDATE users SET active = 1 WHERE userid = ?');
-			$stmt->execute([ $_SESSION['userid'] ]);
+			exit;
 		}
 	}
 ?>

@@ -37,7 +37,7 @@
 			<p id='message'>Game Over!</p>
 		</div>
 		<div id='explication'>
-			<p id='why'>You broke a site rule<br> Which you had agreed to follow<br> Maybe this leave, will teach you<br> how not to break suit</p>
+			<p id='why'>You broke a site law<br> Which you had agreed to follow<br> Maybe this will teach you how<br>to follow said law</p>
 		</div>
 	</div>
 </body>
