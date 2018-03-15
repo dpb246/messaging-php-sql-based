@@ -29,7 +29,7 @@ Password<INPUT name="password" type="password">
 			if(isset($userid)) {
 				$_SESSION['userid'] = $userid;
 				echo "Success";
-				header('Location: chat.html');
+				header('Location: chat.php');
 			}
 			$stmt = $pdo->prepare('UPDATE users SET active = 1 WHERE userid = ?');
 			$stmt->execute([ $_SESSION['userid'] ]);

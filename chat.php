@@ -1,5 +1,8 @@
 <!DOCTYPE html PUBLIC>
-<?php require('ipblock.php'); require('check_login.php');?>
+<?php 
+require('ipblock.php'); 
+require('check_login.php');
+?>
 <html >
 <head>
 <title>Chat</title>
