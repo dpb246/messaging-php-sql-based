@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="Login_Create.css">
+	<link rel="stylesheet" type="text/css" href="Login_Create.css?1">
 </head>
 <body>
 	<div id='screen'>
@@ -12,7 +12,7 @@
 			<INPUT name="username">
 			<p class='form'>Password</p>
 			<INPUT name="password" type="password"><br><br>
-			<INPUT type="submit"> 
+			<INPUT type="submit" value="Login"> 
 			</FORM>
 		</div>
 		<div id='explication'>

@@ -33,3 +33,7 @@
 body {
 	background-color: #eff7f9;
 }
+#usernameexist {
+	color: red;
+	margin: 0px;
+}

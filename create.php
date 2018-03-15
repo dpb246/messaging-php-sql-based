@@ -1,14 +1,14 @@
 <html>
 <head>
 	<title>Create Account</title>
-	<link rel="stylesheet" type="text/css" href="Login_Create.css">
+	<link rel="stylesheet" type="text/css" href="Login_Create.css?1">
 </head>
 <body>
 	<div id='screen'>
 		<div id='container'>
 			<h2 class='form' id='form_title'>Create an Account:</h2>
-			<FORM method="POST" onsubmit="return validateForm()">
-			<p class='form'>Username</p>
+			<FORM id="userinfo" method="POST">
+			<p class='form'>Username</p><p id="usernameexist"></p>
 			<input type="text" name="username" required maxlength="24">
 			<p class='form'>Password</p>
 			<INPUT type="password" name="password"  required maxlength="24"><br><br>
@@ -29,15 +29,7 @@
 			<p class='agreement'>That is the best advice.</p>
 		</div>
 	</div>
-	<script>
-	function validateForm() {
-		var x = document.forms["myForm"]["fname"].value;
-		if (x == "") {
-			alert("Name must be filled out");
-			return false;
-		}
-	}
-	</script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 </body>
 </html>
 
@@ -50,7 +42,12 @@
 		$password = $_POST['password'];
 
 		require("dbusers.php");
-
+		$stmt = $pdo->prepare('SELECT userid FROM users WHERE username=?');
+		$stmt->execute([$username]);
+		if($stmt->fetch() != NULL) {
+			echo "<script> $('#usernameexist').html('Username is taken'); </script>";
+			exit;
+		}
 		$stmt = $pdo->prepare('INSERT INTO users (username, password) VALUES (?, ?)');
 		$stmt->execute([$username, $password]);
 		
