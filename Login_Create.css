@@ -1,0 +1,35 @@
+#screen {
+	position: relative;
+	width: 100%;
+	hieght: 100%;
+	text-align: center;
+}
+#container {
+	text-align: center;
+}
+#message {
+	font-size: 700%;
+	color: blue;
+}
+.emphasis{
+	font-size: 150%;
+}
+.agreement {
+	color: green;
+	margin: 0px;
+}
+.form {
+	color: blue;
+}
+#disclaimer {
+	font-style: italic;
+}
+#why {
+	color: #018982;
+}
+.form {
+	margin: 4px;
+}
+body {
+	background-color: #eff7f9;
+}

@@ -16,18 +16,18 @@
 			text-align: center;
 		}
 		#container {
-			border-size: length;
-			border-color: red;
-			border-style: solid;
 			text-align: center;
 		}
 		#message {
 			font-size: 700%;
-			color: blue;
+			color: #0070FF;
 		}
 		#why {
 			font-size: 200%;
 			color: green;
+		}
+		body {
+			background-color: #911e1e;
 		}
 	</style>
 </head>

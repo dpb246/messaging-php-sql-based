@@ -1,40 +1,7 @@
 <html>
 <head>
 	<title>Create Account</title>
-	<style> 
-		#screen {
-			position: relative;
-			width: 100%;
-			hieght: 100%;
-			text-align: center;
-		}
-		#container {
-			text-align: center;
-		}
-		#message {
-			font-size: 700%;
-			color: blue;
-		}
-		.emphasis{
-			font-size: 150%;
-		}
-		.agreement {
-			color: green;
-			margin: 0px;
-		}
-		.form {
-			color: blue;
-		}
-		#disclaimer {
-			font-style: italic;
-		}
-		#why {
-			color: #018982;
-		}
-		.form {
-			margin: 4px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="Login_Create.css">
 </head>
 <body>
 	<div id='screen'>
