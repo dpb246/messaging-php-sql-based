@@ -24,7 +24,7 @@ a {
     margin:0 auto;
     padding-bottom:25px;
     background:#EBF4FB;
-    width:504px;
+    width:40%;
     border:1px solid #ACD8F0; }
   
 #loginform { padding-top:18px; }
@@ -37,13 +37,13 @@ a {
     margin-bottom:25px;
     padding:10px;
     background:#fff;
-    height:270px;
-    width:430px;
+    height:32%;
+    width:83%;
     border:1px solid #ACD8F0;
     overflow:auto; }
   
 #usermsg {
-    width:395px;
+    width:79%;
     border:1px solid #ACD8F0; }
   
 #submit { width: 60px; }

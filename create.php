@@ -17,6 +17,7 @@
 		</div>
 		<div id='explication'>
 			<hr>
+			<a href='login.php'>Already Have Account? Login</a><br>
 			<h3 class='agreement'>User Agreement</h3>
 			<p class='agreement' id='disclaimer'>By creating an account you agree to the following:</p>
 			<br>

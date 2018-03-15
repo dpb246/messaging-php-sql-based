@@ -6,7 +6,7 @@ require('check_login.php');
 <html >
 <head>
 <title>Chat</title>
-<link type="text/css" rel="stylesheet" href="style.css" />
+<link type="text/css" rel="stylesheet" href="style.css?3" />
 </head>
 <body >
 <div id="all" >
