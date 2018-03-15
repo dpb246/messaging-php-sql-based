@@ -2,11 +2,12 @@
 <?php 
 require('ipblock.php'); 
 require('check_login.php');
+$_SESSION['lastmsgsent'] = -1;
 ?>
 <html >
 <head>
 <title>Chat</title>
-<link type="text/css" rel="stylesheet" href="style.css?3" />
+<link type="text/css" rel="stylesheet" href="style.css?5" />
 </head>
 <body >
 <div id="all" >
@@ -20,8 +21,8 @@ require('check_login.php');
 		<div id="chatbox"></div>
 		 
 		<form name="message" action="">
-			<input name="usermsg" type="text" id="usermsg" size="63" />
-			<input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
+			<input name="usermsg" type="text" id="usermsg" size="63" required autofocus>
+			<input name="submitmsg" type="submit"  id="submitmsg" value="Send">
 		</form>
 	</div>
 </div>
@@ -33,22 +34,30 @@ require('check_login.php');
 	});
 	$("#submitmsg").click(function(){	
 		var clientmsg = $("#usermsg").val();
-		$.post("add.php", {message: clientmsg});				
+		if(clientmsg != "") {	
+			$.post("add.php", {message: clientmsg});
+		}			
 		$("#usermsg").attr("value", "");
 		return false;
 	});
 	var oldscrollHeight = 0;
+	var oldHtml = "";
+	var displayedHtml = "";
 	function loadLog(){		
 		$.ajax({
 			url: "view.php",
 			cache: false,
 			success: function(html){
-				$("#chatbox").html(html); //Insert chat log into the #chatbox div
-				//Auto-scroll			
-				var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request
-				if(newscrollHeight > oldscrollHeight){
-					$("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
-					oldscrollHeight = newscrollHeight;
+				if(oldHtml != html) {
+					oldHtml=html;
+					displayedHtml = html;
+					$("#chatbox").html(displayedHtml); //Insert chat log into the #chatbox div
+					//Auto-scroll			
+					var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request
+					if(newscrollHeight > oldscrollHeight){
+						$("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
+						oldscrollHeight = newscrollHeight;
+					}
 				}
 			},
 		});

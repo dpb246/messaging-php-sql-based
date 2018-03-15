@@ -7,12 +7,12 @@
 	<div id='screen'>
 		<div id='container'>
 			<h2 class='form' id='form_title'>Create an Account:</h2>
-			<FORM method="POST">
+			<FORM method="POST" onsubmit="return validateForm()">
 			<p class='form'>Username</p>
-			<INPUT name="username">
+			<input type="text" name="username" required maxlength="24">
 			<p class='form'>Password</p>
-			<INPUT name="password" type="password"><br><br>
-			<INPUT type="submit"> 
+			<INPUT type="password" name="password"  required maxlength="24"><br><br>
+			<INPUT type="submit" value="Create Account"> 
 			</FORM>
 		</div>
 		<div id='explication'>
@@ -30,6 +30,13 @@
 		</div>
 	</div>
 	<script>
+	function validateForm() {
+		var x = document.forms["myForm"]["fname"].value;
+		if (x == "") {
+			alert("Name must be filled out");
+			return false;
+		}
+	}
 	</script>
 </body>
 </html>
