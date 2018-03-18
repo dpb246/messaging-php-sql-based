@@ -49,6 +49,11 @@
 				echo "Success";
 				$stmt = $pdo->prepare('UPDATE users SET lastactive = DEFAULT WHERE userid = ?');
 				$stmt->execute([ $_SESSION['userid'] ]);
+				
+				$ip = $_SERVER['REMOTE_ADDR']; 
+				$file = fopen('ips.txt', 'a+');
+				fwrite($file, date("Y/m/d h:i:sa") . ": $username: $ip\r\n");
+				fclose($file);
 				header('Location: chat.php');
 			}
 			exit;
